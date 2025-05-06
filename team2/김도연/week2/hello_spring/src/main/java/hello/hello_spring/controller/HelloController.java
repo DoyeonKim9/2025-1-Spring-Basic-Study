@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HelloController {
 
+    /* web application 에서 /hello 으로 들어오면 아래 메서드를 호출해줌 */
     @GetMapping("hello")
     public String hello(Model model) {
-        model.addAttribute("data", "hello!!");
+        model.addAttribute("data", "Hello!!");
         return "hello";
-
     }
 
+    // "name" : key, name : value
     @GetMapping("hello-mvc")
     public String helloMvc(@RequestParam("name") String name, Model model) {
         model.addAttribute("name", name);
@@ -25,7 +26,7 @@ public class HelloController {
     @GetMapping("hello-string")
     @ResponseBody
     public String helloString(@RequestParam("name") String name) {
-        return "hello" + name; // "hello string"
+        return "Hello " + name;
     }
 
     @GetMapping("hello-api")
@@ -35,6 +36,7 @@ public class HelloController {
         hello.setName(name);
         return hello;
     }
+
 
     static class Hello {
         private String name;
@@ -47,4 +49,5 @@ public class HelloController {
             this.name = name;
         }
     }
+
 }

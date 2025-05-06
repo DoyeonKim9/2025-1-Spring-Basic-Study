@@ -2,7 +2,7 @@ package hello.hello_spring.domain;
 
 public class Member {
 
-    private Long id; /// 아이디 식별자가 있어야함
+    private Long id; // 시스템이 저장하는 id
     private String name;
 
     public Long getId() {
